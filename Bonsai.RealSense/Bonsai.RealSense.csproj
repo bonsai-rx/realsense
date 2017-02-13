@@ -118,10 +118,8 @@
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
     <Error Condition="!Exists('..\packages\OpenCV.Net.3.3.0\build\net40\OpenCV.Net.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\OpenCV.Net.3.3.0\build\net40\OpenCV.Net.props'))" />
     <Error Condition="!Exists('..\packages\OpenCV.Net.3.3.0\build\net40\OpenCV.Net.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\OpenCV.Net.3.3.0\build\net40\OpenCV.Net.targets'))" />
-    <Error Condition="!Exists('..\packages\libpxccpp2c.10.0.26.396\build\net45\libpxccpp2c.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\libpxccpp2c.10.0.26.396\build\net45\libpxccpp2c.targets'))" />
   </Target>
   <Import Project="..\packages\OpenCV.Net.3.3.0\build\net40\OpenCV.Net.targets" Condition="Exists('..\packages\OpenCV.Net.3.3.0\build\net40\OpenCV.Net.targets')" />
-  <Import Project="..\packages\libpxccpp2c.10.0.26.396\build\net45\libpxccpp2c.targets" Condition="Exists('..\packages\libpxccpp2c.10.0.26.396\build\net45\libpxccpp2c.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
