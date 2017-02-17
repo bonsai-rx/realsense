@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Gonçalo Lopes")]
 [assembly: AssemblyProduct("Bonsai.RealSense")]
-[assembly: AssemblyCopyright("Copyright © Gonçalo Lopes 2016")]
+[assembly: AssemblyCopyright("Copyright © Gonçalo Lopes 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
