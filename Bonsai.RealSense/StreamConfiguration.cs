@@ -22,7 +22,7 @@ namespace Bonsai.RealSense
 
         public override string ToString()
         {
-            return string.Format(CultureInfo.InvariantCulture, "{0} {1}x{2}@{4} ({3})", Stream, Width, Height, Format, Framerate);
+            return string.Format(CultureInfo.InvariantCulture, "{0} {1}x{2}@{4}fps ({3})", Stream, Width, Height, Format, Framerate);
         }
     }
 }
