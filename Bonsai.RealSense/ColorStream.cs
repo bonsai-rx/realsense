@@ -2,6 +2,7 @@
 using RealSense.Net;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Reactive.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace Bonsai.RealSense
 {
+    [Description("Subscribes to the native stream of color images in a RealSense device.")]
     public class ColorStream : Combinator<DeviceEvents, IplImage>
     {
         public override IObservable<IplImage> Process(IObservable<DeviceEvents> source)
