@@ -6,12 +6,12 @@
     <title>$title$</title>
     <authors>$author$</authors>
     <owners>$author$</owners>
-    <licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>
-    <projectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</projectUrl>
-    <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
+    <licenseUrl>https://bitbucket.org/horizongir/bonsai.realsense/raw/0473599214c197c153d8677d10cdfb64c3b3d2cb/LICENSE</licenseUrl>
+    <projectUrl>https://bitbucket.org/horizongir/bonsai.realsense</projectUrl>
+    <iconUrl>https://bitbucket.org/horizongir/bonsai/raw/7aacc64dc4647e57362ab310238591dc197fef0d/Resources/Bonsai.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <copyright>$author$ © 2016</copyright>
-    <tags>Bonsai</tags>
+    <copyright>$author$ © 2017</copyright>
+    <tags>Bonsai Intel RealSense 3D Depth Camera</tags>
   </metadata>
 </package>
