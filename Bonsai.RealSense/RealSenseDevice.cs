@@ -2,6 +2,7 @@
 using RealSense.Net;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
@@ -10,12 +11,15 @@ using System.Threading.Tasks;
 
 namespace Bonsai.RealSense
 {
+    [Description("Creates and connects to a RealSense device.")]
     public class RealSenseDevice : Source<DeviceEvents>
     {
         readonly StreamConfigurationCollection streams = new StreamConfigurationCollection();
 
+        [Description("The index of the device.")]
         public int Index { get; set; }
 
+        [Description("The collection of streams that should be enabled when connecting to the device.")]
         public StreamConfigurationCollection Streams
         {
             get { return streams; }
