@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Bonsai.Examples.RealSense</id>
+    <version>0.1.0</version>
+    <title>Bonsai - RealSense Example</title>
+    <authors>glopes</authors>
+    <owners>glopes</owners>
+    <licenseUrl>https://bitbucket.org/horizongir/bonsai.realsense/raw/0473599214c197c153d8677d10cdfb64c3b3d2cb/LICENSE</licenseUrl>
+    <projectUrl>https://bitbucket.org/horizongir/bonsai.realsense</projectUrl>
+    <iconUrl>https://bitbucket.org/horizongir/bonsai/raw/7aacc64dc4647e57362ab310238591dc197fef0d/Resources/Bonsai.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>An example of using an Intel RealSense camera in Bonsai.</description>
+    <copyright>Gonçalo Lopes © 2017</copyright>
+    <tags>Intel RealSense 3D Depth Camera Example Bonsai Gallery</tags>
+    <dependencies>
+      <dependency id="Bonsai.Core" version="2.3.0" />
+      <dependency id="Bonsai.RealSense" version="0.1.0" />
+      <dependency id="Bonsai.Vision.Design" version="2.3.0" />
+    </dependencies>
+  </metadata>
+</package>
