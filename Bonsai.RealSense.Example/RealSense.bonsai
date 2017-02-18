@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WorkflowBuilder Version="2.3.0">
+  <Workflow xmlns:q1="clr-namespace:Bonsai.RealSense;assembly=Bonsai.RealSense" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="https://horizongir.org/bonsai">
+    <Nodes>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="q1:RealSenseDevice">
+          <q1:Index>0</q1:Index>
+          <q1:Streams>
+            <q1:StreamConfiguration>
+              <q1:Stream>Depth</q1:Stream>
+              <q1:Width>0</q1:Width>
+              <q1:Height>0</q1:Height>
+              <q1:Format>Any</q1:Format>
+              <q1:Framerate>60</q1:Framerate>
+            </q1:StreamConfiguration>
+            <q1:StreamConfiguration>
+              <q1:Stream>Color</q1:Stream>
+              <q1:Width>0</q1:Width>
+              <q1:Height>0</q1:Height>
+              <q1:Format>Any</q1:Format>
+              <q1:Framerate>60</q1:Framerate>
+            </q1:StreamConfiguration>
+          </q1:Streams>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="q1:DepthStream" />
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="q1:ColorStream" />
+      </Expression>
+    </Nodes>
+    <Edges>
+      <Edge>
+        <From>0</From>
+        <To>1</To>
+        <Label>Source1</Label>
+      </Edge>
+      <Edge>
+        <From>0</From>
+        <To>2</To>
+        <Label>Source1</Label>
+      </Edge>
+    </Edges>
+  </Workflow>
+  <ExtensionTypes>
+    <Type>Bonsai.RealSense.RealSenseDevice, Bonsai.RealSense, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null</Type>
+    <Type>Bonsai.RealSense.DepthStream, Bonsai.RealSense, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null</Type>
+    <Type>Bonsai.RealSense.ColorStream, Bonsai.RealSense, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null</Type>
+  </ExtensionTypes>
+</WorkflowBuilder>
