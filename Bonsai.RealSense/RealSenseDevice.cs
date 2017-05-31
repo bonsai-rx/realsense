@@ -19,6 +19,9 @@ namespace Bonsai.RealSense
         [Description("The index of the device.")]
         public int Index { get; set; }
 
+        [Description("The optional usage mode preset of the device.")]
+        public IVCamPreset? Preset { get; set; }
+
         [Description("The collection of streams that should be enabled when connecting to the device.")]
         public StreamConfigurationCollection Streams
         {
@@ -49,6 +52,11 @@ namespace Bonsai.RealSense
                     device.SetFrameCallback(configuration.Stream, callback);
                 }
 
+                var preset = Preset;
+                if (preset.HasValue)
+                {
+                    device.ApplyIVCamPreset(preset.Value);
+                }
                 device.Start();
                 return Observable.Return(deviceEvents).Concat(Observable.Never<DeviceEvents>()).Finally(() =>
                 {
