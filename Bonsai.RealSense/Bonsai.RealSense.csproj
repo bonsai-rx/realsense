@@ -76,9 +76,9 @@
       <HintPath>..\packages\OpenCV.Net.3.3.1\lib\net40\OpenCV.Net.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="RealSense.Net, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="RealSense.Net, Version=0.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\RealSense.Net.0.1.0\lib\net45\RealSense.Net.dll</HintPath>
+      <HintPath>..\packages\RealSense.Net.0.2.0\lib\net45\RealSense.Net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -115,12 +115,12 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <StartAction>Program</StartAction>
-    <StartProgram>$(registry:HKEY_CURRENT_USER\Software\Goncalo Lopes\Bonsai@InstallDir)Bonsai.exe</StartProgram>
+    <StartProgram>$(registry:HKEY_CURRENT_USER\Software\Goncalo Lopes\Bonsai@InstallDir)Bonsai64.exe</StartProgram>
     <StartArguments>--lib:"$(TargetDir)."</StartArguments>
   </PropertyGroup>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Import Project="..\packages\OpenCV.Net.3.3.1\build\net40\OpenCV.Net.targets" Condition="Exists('..\packages\OpenCV.Net.3.3.1\build\net40\OpenCV.Net.targets')" />
-  <Import Project="..\packages\RealSense.Net.0.1.0\build\net45\RealSense.Net.targets" Condition="Exists('..\packages\RealSense.Net.0.1.0\build\net45\RealSense.Net.targets')" />
+  <Import Project="..\packages\RealSense.Net.0.2.0\build\net45\RealSense.Net.targets" Condition="Exists('..\packages\RealSense.Net.0.2.0\build\net45\RealSense.Net.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
