@@ -99,6 +99,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ColorStream.cs" />
+    <Compile Include="GetExtrinsics.cs" />
+    <Compile Include="GetStreamIntrinsics.cs" />
     <Compile Include="InfraredStream.cs" />
     <Compile Include="DepthStream.cs" />
     <Compile Include="DeviceEvents.cs" />
