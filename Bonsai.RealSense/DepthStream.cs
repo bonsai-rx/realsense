@@ -1,9 +1,10 @@
-﻿using OpenCV.Net;
-using RealSense.Net;
+﻿using Intel.RealSense;
+using OpenCV.Net;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,21 +12,43 @@ using System.Threading.Tasks;
 namespace Bonsai.RealSense
 {
     [Description("Subscribes to the native stream of depth images in a RealSense device.")]
-    public class DepthStream : Combinator<DeviceEvents, IplImage>
+    public class DepthStream : Combinator<Device, VideoDataFrame>
     {
-        public override IObservable<IplImage> Process(IObservable<DeviceEvents> source)
+        public DepthStream()
         {
-            return source.SelectMany(device => Observable.FromEvent<FrameCallback, Frame>(
-                handler => device.DepthFrame += handler,
-                handler => device.DepthFrame -= handler))
-                .Select(frame =>
+            Framerate = 60;
+        }
+
+        public int Framerate { get; set; }
+
+        public override IObservable<VideoDataFrame> Process(IObservable<Device> source)
+        {
+            return source.SelectMany(device =>
+            {
+                var depthSensor = device.QuerySensors().First(sensor => sensor.Is(Extension.DepthSensor));
+                var profile = depthSensor.StreamProfiles.First(p => p.Framerate == Framerate && p.Stream == Stream.Depth);
+                return Observable.Create<VideoDataFrame>(observer =>
                 {
-                    var size = new Size(frame.Width, frame.Height);
-                    var image = new IplImage(size, IplDepth.U16, 1);
-                    var frameHeader = new Mat(size, Depth.U16, 1, frame.FrameData, frame.Stride);
-                    CV.Copy(frameHeader, image);
-                    return image;
+                    depthSensor.Open(profile);
+                    depthSensor.Start(frame =>
+                    {
+                        VideoDataFrame output;
+                        using (var videoFrame = frame.As<VideoFrame>())
+                        {
+                            var image = new IplImage(new Size(videoFrame.Width, videoFrame.Height), IplDepth.U16, 1);
+                            videoFrame.CopyTo(image.ImageData);
+                            output = new VideoDataFrame(videoFrame, image);
+                        }
+
+                        observer.OnNext(output);
+                    });
+                    return Disposable.Create(() =>
+                    {
+                        depthSensor.Stop();
+                        depthSensor.Close();
+                    });
                 });
+            });
         }
     }
 }
