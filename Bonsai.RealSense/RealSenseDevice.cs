@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 namespace Bonsai.RealSense
 {
     [Description("Creates and connects to a RealSense device.")]
+    [WorkflowElementIcon(typeof(ElementCategory), "ElementIcon.Video")]
     public class RealSenseDevice : Source<Device>
     {
         [Description("The index of the device.")]
