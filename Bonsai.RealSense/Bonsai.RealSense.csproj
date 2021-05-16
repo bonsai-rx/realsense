@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <Authors>Gonçalo Lopes</Authors>
@@ -18,7 +18,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="..\Externals\RealSense\**\*.dll" PackagePath="build\net462\bin" />
+    <Content Include="..\Externals\RealSense\**\Intel.*.dll" PackagePath="build\net462\bin" />
+    <Content Include="..\Externals\RealSense\**\realsense2.dll" PackagePath="build\native\bin" />
     <Reference Include="Intel.Realsense">
       <HintPath>..\Externals\RealSense\x64\Intel.Realsense.dll</HintPath>
     </Reference>
